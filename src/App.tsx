@@ -1,4 +1,3 @@
-import { useState } from "react";
 import NavBar from "./Components/Navbar";
 import Home from "./Components/Home";
 import Work from "./Components/Work";
@@ -6,7 +5,6 @@ import { Route, Routes } from "react-router-dom";
 import { getFirstImage } from "./utils/getFirstImage";
 import { images } from "./utils/images";
 function App() {
-  // const [images, setImages] = useState();
   const firstImage = getFirstImage();
 
   return (
