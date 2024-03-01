@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import Image, { ImageParams } from "./Image";
 
 interface HomeProps {
@@ -7,13 +7,19 @@ interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({ images }) => {
   return (
-    <div className="h-auto bg-purple-300  grid grid-cols-5  ">
-      {images.map((image: ImageParams, index: number) => (
-        <div key={index}>
-          <Image name={image.name} url={image.url} number={index} />
-        </div>
-      ))}
-    </div>
+    <>
+      <div className=" bg-purple-300   home-grid  ">
+        {images.map((image: ImageParams, index: number) => (
+          <div key={index} className="relative">
+            {/* <Link to={`work/${index + 1}`}> */}
+            {/* <Link to={`/${image.name}/${index}`}> */}
+            <Link to={`/${image.name}`}>
+              <Image name={image.name} url={image.url} number={index} />
+            </Link>
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
