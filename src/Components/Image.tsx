@@ -3,30 +3,42 @@ import React from "react";
 export interface ImageParams {
   url: string;
   name: string;
+  fullName?: string;
   number?: number;
+  details: Details;
 }
-const Image: React.FC<ImageParams> = ({ name, url, number }) => {
+
+export type Details = {
+  director: string;
+  director_of_photography: string;
+  producer: string;
+  production_designer?: string;
+  art_directors?: string;
+  year?: number;
+  videoUrl?: string[];
+  productionImages?: string[];
+};
+
+// type ImageProps = Omit<ImageParams, "details">
+
+type ImageProps = {
+  url: string;
+  name: string;
+  fullName?: string;
+  number?: number;
+  isHomeGif?: boolean;
+};
+
+const Image: React.FC<ImageProps> = ({ name, url, number, isHomeGif }) => {
   return (
     <>
-      {/* <div key={number} className="aspect-square"> */}
-      {/* <div
-        className="w-auto "
-        className="w-[150px] h-[150px] "
-        style={{
-          backgroundImage: `url("${url}")`,
-          backgroundPosition: "center",
-          backgroundPositionX: "50%",
-          backgroundPositionY: "50%",
-          backgroundRepeat: "no-repeat",
-        }}
-      > */}
       <img
-        // className="object-cover w-[200px] h-[200px] aspect-square"
-        className="absolute  w-full h-full object-cover "
+        className={`absolute w-full h-full object-cover ${
+          isHomeGif ? "home-gif" : ""
+        }  `}
         src={url}
         alt={name}
       />
-      {/* </div> */}
     </>
   );
 };

@@ -1,6 +1,6 @@
-import { images } from "./images";
+import { images } from "./images_complete";
 
 export const getFirstImage = () => {
-  console.log(" getFirstImage 🎪", images[0]);
+  // console.log(" getFirstImage 🎪", images[0]);
   return images[0];
 };
